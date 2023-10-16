@@ -8,13 +8,21 @@ public class Repaso {
 
         // Press Mayús+F10 or click the green arrow button in the gutter to run the code.
         int cont = 0;
-        for (int i = 1; i <= 7; i++) {
-            int numAsteriscos = i+cont;
-            int numEspacios = (int) ((7-numAsteriscos)/2);
-            if (i<=4)
-                pinta(numEspacios,numAsteriscos);
+        int tama = 113;  // tama siempre con valores impares >= 3
+        int finHojas = (int) (tama/2);
+        if (tama % 2 !=0)
+            finHojas++;
+        int numAsteriscos,numEspacios;
+        for (int i = 1; i <= tama; i++) {
+            if (i<=finHojas)
+                numAsteriscos = i+cont;
             else
-                pinta(2,3);
+                numAsteriscos = tama - finHojas;
+
+            numEspacios = (int) ((tama-numAsteriscos)/2);
+            if ((tama-numAsteriscos)%2!=0 && i>finHojas)
+                numAsteriscos++;
+            pinta(numEspacios,numAsteriscos);
             cont++;
         }
     }
